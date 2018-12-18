@@ -1,8 +1,8 @@
 
-import * as url from './lib/url';
-import * as where from './lib/where';
+const url = require('./lib/url');
+const where = require('./lib/where');
 
-export default {
+module.exports = {
   url,
   where
 }

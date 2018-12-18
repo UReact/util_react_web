@@ -1,10 +1,18 @@
 {
   "name": "util_react_web",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "react 项目内常用的一些工具方法",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "safe-publish-latest && npm run dist",
+    "pretest": "npm run --silent readme && npm run --silent lint",
+    "test": "npm run --silent coverage",
+    "tests-only": "node test",
+    "readme": "evalmd README.md",
+    "postlint": "editorconfig-tools check * lib/* test/*",
+    "lint": "eslint lib/*.js test/*.js",
+    "coverage": "covert test",
+    "dist": "mkdirp dist && browserify --standalone Qs lib/index.js > dist/qs.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +30,15 @@
   "homepage": "https://github.com/ThomasLiu/util_react_web#readme",
   "dependencies": {
     "qs": "^6.6.0"
+  },
+  "devDependencies": {
+    "@ljharb/eslint-config": "^13.0.0",
+    "browserify": "^16.2.3",
+    "covert": "^1.1.0",
+    "editorconfig-tools": "^0.1.1",
+    "eslint": "^5.10.0",
+    "evalmd": "0.0.17",
+    "mkdirp": "^0.5.1",
+    "tape": "^4.9.1"
   }
 }
