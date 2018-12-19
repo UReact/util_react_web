@@ -1,17 +1,17 @@
 {
   "name": "util_react_web",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "react 项目内常用的一些工具方法",
   "main": "index.js",
+  "files": [
+    "lib",
+    "index.js"
+  ],
   "scripts": {
-    "pretest": "npm run --silent readme && npm run --silent lint",
-    "test": "npm run --silent coverage",
-    "tests-only": "node test",
-    "readme": "evalmd README.md",
-    "postlint": "editorconfig-tools check * lib/* test/*",
+    "pretest": "npm run --silent lint",
+    "test": "node_modules/mocha/bin/mocha --require intelli-espower-loader test/index.js",
     "lint": "eslint lib/*.js test/*.js",
-    "coverage": "covert test",
-    "dist": "mkdirp dist && browserify --standalone Qs lib/index.js > dist/qs.js"
+    "prepublish": "npm test"
   },
   "repository": {
     "type": "git",
@@ -31,13 +31,9 @@
     "qs": "^6.6.0"
   },
   "devDependencies": {
-    "@ljharb/eslint-config": "^13.0.0",
-    "browserify": "^16.2.3",
-    "covert": "^1.1.0",
-    "editorconfig-tools": "^0.1.1",
     "eslint": "^5.10.0",
-    "evalmd": "0.0.17",
-    "mkdirp": "^0.5.1",
-    "tape": "^4.9.1"
+    "intelli-espower-loader": "^1.0.1",
+    "mocha": "^5.2.0",
+    "power-assert": "^1.6.1"
   }
 }
