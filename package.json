@@ -1,6 +1,6 @@
 {
   "name": "util_react_web",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "react 项目内常用的一些工具方法",
   "main": "./index.js",
   "files": [
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThomasLiu/util_react_web.git"
+    "url": "git+https://github.com/UReact/util_react_web.git"
   },
   "keywords": [
     "Util",
@@ -24,9 +24,9 @@
   "author": "Thomas Lau (thomas_0836@qq.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ThomasLiu/util_react_web/issues"
+    "url": "https://github.com/UReact/util_react_web/issues"
   },
-  "homepage": "https://github.com/ThomasLiu/util_react_web#readme",
+  "homepage": "https://github.com/UReact/util_react_web#readme",
   "dependencies": {
     "qs": "^6.6.0"
   },

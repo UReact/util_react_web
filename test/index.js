@@ -24,6 +24,54 @@ describe('Url test', () => {
     assert(thisUrl === 'http://baidu.com?a=1&b=2&lan=en');
 
   });
+
+  it('fixLan test', () => {    
+    const { fixLan } = url
+    let lan = fixLan({
+      lan: 'en',
+    })
+    assert(lan === 'en-US');
+    lan = fixLan({
+      lan: 'zh',
+    })
+    assert(lan === 'zh-CN');
+
+    lan = fixLan({
+      lan: 'zh-CN',
+    })
+    assert(lan === 'zh-CN');
+
+    lan = fixLan({
+      lan: 'zh-cn',
+    })
+    assert(lan === 'zh-CN');
+
+    lan = fixLan({
+      lan: 'zh-cn',
+      limitLanArr: ['zh-CN', 'en-US']
+    })
+    assert(lan === 'zh-CN');
+
+    lan = fixLan({
+      lan: 'en-US',
+      limitLanArr: ['zh-CN']
+    })
+    assert(lan === 'zh-CN');
+
+    lan = fixLan({
+      lan: 'ab',
+    })
+    assert(lan === 'en-US');
+
+    lan = fixLan({
+      lan: 'ab',
+      changeObj: {
+        ab: 'zh-CN'
+      }
+    })
+    assert(lan === 'zh-CN');
+
+  });
 });
 
 describe('where test', () => {  
