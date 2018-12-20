@@ -3,6 +3,17 @@ const util = require('../')
 const { url, where } = util;
 
 describe('Url test', () => {  
+
+  it('urlToList test', () => {    
+    const { urlToList } = url
+    const testUrl = '/userinfo/2144/id';
+    const arr = urlToList(testUrl);
+    assert(arr.length === 3);
+    assert(arr[0] === '/userinfo');
+    assert(arr[1] === '/userinfo/2144');
+    assert(arr[2] === '/userinfo/2144/id');
+  });
+
   it('isUrl test', () => {    
     const { isUrl } = url
     const testUrl = 'http://baidu.com?a=1&b=2';
@@ -28,7 +39,6 @@ describe('Url test', () => {
     assert(thisUrl.indexOf('b=2') > 0);
     assert(thisUrl.indexOf('baidu.com') > 0);
     assert(thisUrl === 'http://baidu.com?a=1&b=2&lan=en');
-
   });
 
   it('fixLan test', () => {    
