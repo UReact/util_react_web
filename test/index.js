@@ -3,6 +3,12 @@ const util = require('../')
 const { url, where } = util;
 
 describe('Url test', () => {  
+  it('isUrl test', () => {    
+    const { isUrl } = url
+    const testUrl = 'http://baidu.com?a=1&b=2';
+    const is = isUrl(testUrl);
+    assert(is);
+  });
   it('getPageQuery test', () => {    
     const { getPageQuery } = url
     const testUrl = 'http://baidu.com?a=1&b=2';
