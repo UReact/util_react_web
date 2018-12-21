@@ -1,6 +1,41 @@
 const assert = require('power-assert');
 const util = require('../')
-const { url, where } = util;
+const { url, where, string } = util;
+
+describe('string test', () => {  
+  
+  describe('getIntl test', () => { 
+    const { getIntl } = string
+    const intl = {
+      get: key => key
+    }
+    const key = 'key';
+    const defaultValue = 'defaultValue';  
+    const key1 = null;
+    const defaultValue1 = null;
+    const intl1 = {
+      get: () => ''
+    }
+    it('should work', () => {    
+      const value = getIntl(intl, key, defaultValue);
+      assert(value === key);
+    });
+    it('测试 key 为null', () => {    
+      const value = getIntl(intl, key1, defaultValue);
+      assert(value === defaultValue);
+    });
+    it('测试 defaultValue 为null', () => {    
+      let value = getIntl(intl, key, defaultValue1);
+      assert(value === key);
+      value = getIntl(intl, key);
+      assert(value === key);
+    });
+    it('测试 国际化没有值', () => {    
+      const value = getIntl(intl1, key, defaultValue);
+      assert(value === defaultValue);
+    });
+  })
+});
 
 describe('Url test', () => {  
 
