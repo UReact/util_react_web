@@ -4,7 +4,7 @@ const { url, where, string } = util;
 
 describe('string test', () => {  
   
-  describe.only('getLikeWhere test', () => { 
+  describe('getLikeWhere test', () => { 
     const { getLikeWhere, getWhereObj } = string
     const testObj = {
       a: 'a',
