@@ -4,6 +4,26 @@ const { url, where, string } = util;
 
 describe('string test', () => {  
   
+  describe.only('getLikeWhere test', () => { 
+    const { getLikeWhere, getWhereObj } = string
+    const testObj = {
+      a: 'a',
+      b: 'b',
+      c: 'c'
+    }
+    const whereStr = getLikeWhere(testObj)
+    const whereObj = getWhereObj(whereStr)
+    it('getLikeWhere should work', () => {    
+      assert(whereStr === '%7B%22a%22%3A%7B%22%24like%22%3A%22%25a%25%22%7D%2C%22b%22%3A%7B%22%24like%22%3A%22%25b%25%22%7D%2C%22c%22%3A%7B%22%24like%22%3A%22%25c%25%22%7D%7D');
+    });
+    it('getWhereObj should work', () => {    
+      assert(whereObj.a === 'a');
+      assert(whereObj.b === 'b');
+      assert(whereObj.c === 'c');
+    });
+  });
+
+  
   describe('getIntl test', () => { 
     const { getIntl } = string
     const intl = {
