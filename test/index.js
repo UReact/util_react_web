@@ -7,7 +7,7 @@ describe('string test', () => {
   describe('getIntl test', () => { 
     const { getIntl } = string
     const intl = {
-      get: key => key
+      get: key => `${key}_`
     }
     const key = 'key';
     const defaultValue = 'defaultValue';  
@@ -18,16 +18,16 @@ describe('string test', () => {
     }
     it('should work', () => {    
       const value = getIntl(intl, key, defaultValue);
-      assert(value === key);
+      assert(value === `${key}_`);
     });
     it('测试 key 为null', () => {    
       const value = getIntl(intl, key1, defaultValue);
       assert(value === defaultValue);
     });
     it('测试 defaultValue 为null', () => {    
-      let value = getIntl(intl, key, defaultValue1);
+      let value = getIntl(intl1, key, defaultValue1);
       assert(value === key);
-      value = getIntl(intl, key);
+      value = getIntl(intl1, key);
       assert(value === key);
     });
     it('测试 国际化没有值', () => {    

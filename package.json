@@ -1,6 +1,6 @@
 {
   "name": "util_react_web",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "react 项目内常用的一些工具方法",
   "main": "./index.js",
   "files": [
