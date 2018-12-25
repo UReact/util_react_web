@@ -12,15 +12,31 @@ describe('string test', () => {
       c: 'c'
     }
     const whereStr = getLikeWhere(testObj)
+    const whereStr2 = getLikeWhere({})
+    const whereStr3 = getLikeWhere()
     const whereObj = getWhereObj(whereStr)
+    const whereObj2 = getWhereObj('adfasd')
+    const whereObj3 = getWhereObj()
+    
+
     it('getLikeWhere should work', () => {    
       assert(whereStr === '%7B%22a%22%3A%7B%22%24like%22%3A%22%25a%25%22%7D%2C%22b%22%3A%7B%22%24like%22%3A%22%25b%25%22%7D%2C%22c%22%3A%7B%22%24like%22%3A%22%25c%25%22%7D%7D');
     });
+    it('getLikeWhere should 空字符串', () => {    
+      assert(whereStr2 === '');
+      assert(whereStr3 === '');
+    });
+   
     it('getWhereObj should work', () => {    
       assert(whereObj.a === 'a');
       assert(whereObj.b === 'b');
       assert(whereObj.c === 'c');
     });
+    it('getWhereObj should 空对象', () => {    
+      assert(JSON.stringify(whereObj2) === JSON.stringify({}));
+      assert(JSON.stringify(whereObj3) === JSON.stringify({}));
+    });
+
   });
 
   
